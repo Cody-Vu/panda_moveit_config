@@ -12,6 +12,7 @@
   <arg name="paused" default="false" doc="Start Gazebo paused"/>
 
   <!-- Launch the gazebo simulator and spawn the robot -->
+  <rosparam file="$(find panda_moveit_config)/config/gazebo_controllers.yaml" command="load"/>
   <include file="$(find franka_gazebo)/launch/panda.launch" pass_all_args="true">
     <arg name="headless" value="$(eval not arg('gazebo_gui'))" />
     <arg name="use_gripper" default="$(arg load_gripper)" />
