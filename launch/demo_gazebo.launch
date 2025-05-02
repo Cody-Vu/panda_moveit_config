@@ -5,7 +5,7 @@
 
   <!-- Panda options -->
   <arg name="load_gripper" default="true" />
-  <arg name="transmission" default="effort" />
+  <arg name="transmission" default="CartesianImpedance" />
 
   <!-- Gazebo options -->
   <arg name="gazebo_gui" default="true" doc="Start Gazebo GUI"/>
@@ -16,7 +16,7 @@
   <include file="$(find franka_gazebo)/launch/panda.launch" pass_all_args="true">
     <arg name="headless" value="$(eval not arg('gazebo_gui'))" />
     <arg name="use_gripper" default="$(arg load_gripper)" />
-    <arg name="controller" default="$(arg transmission)_joint_trajectory_controller" />
+    <arg name="controller" default="$(arg transmission)_trajectory_controller" />
   </include>
 
   <!-- Launch MoveIt -->
